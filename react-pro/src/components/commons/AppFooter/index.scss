@@ -1,0 +1,26 @@
+.App-Footer{
+    display: flex;
+    height: 1rem;
+    width: 100%;
+    justify-items: center;
+    background-color: antiquewhite;
+    position: fixed;
+    bottom: 0;
+    a{  
+        &.active{
+           
+            color:hsl(0, 43%, 56%)
+        }
+        display:flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        i{
+            font-size: .35rem;
+        }
+        span{
+            font-size: 12px;
+        }
+    }
+}
