@@ -10,7 +10,16 @@ import './modules/axios-utils'
 
 import "./modules/rem"  //引入rem比例
 
+import {Provider} from "react-redux"
+
+import store from "./store"
 
 
 import { HashRouter as Router} from "react-router-dom" // 引入路由
-ReactDOM.render(<Router><App /></Router>,document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>   
+    </Provider>
+        ,document.getElementById('root'));

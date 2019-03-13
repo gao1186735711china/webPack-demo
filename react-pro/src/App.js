@@ -24,15 +24,18 @@ class App extends Component {
         <Switch>
           {navs.map(item=>{
             return (
-              <Route key={item.id} path={item.path} component={item.component} exact />
+              <Route key={item.id} path={item.path} component={item.component} exact={item.exact}/>
             )
           })}
         </Switch>
-      ) 
+      )
     }
     renderFooter(){
       let {pathname} = this.props.location
-      if(pathname === "/mine") return false
+      // if(pathname === "/mine") return false
+      // let no_footer_path = ['/mine',"/buycar"]; //判断多个是否消失
+      let no_footer_path = ['/mine/login']; //判断多个是否消失
+      if(no_footer_path.indexOf(pathname)>-1) return false
       return <AppFooter></AppFooter>
     }
   render() {
@@ -57,8 +60,9 @@ App.defaultProps ={
   navs:[
     {id:1,path:"/",component:Home,exact:true},
     {id:2,path:"/list",component:List},
-    {id:3,path:"/mine",component:Mine},
+    {id:3,path:"/mine",component:Mine,},
     {id:4,path:"/buycar",component:Buycar},
+
   ]
 }
 export default withRouter(App);//伪路由组件
